@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shop Quần Áo Online</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f5f5f5;
+      }
+
+      header {
+        background: #222;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 24px;
+      }
+
+      .container {
+        display: flex;
+        padding: 20px;
+      }
+
+      /* Danh sách sản phẩm */
+      .products {
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .product {
+        background: white;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .product img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .product h3 {
+        margin: 10px 0 5px;
+      }
+
+      .product p {
+        color: #e53935;
+        font-weight: bold;
+      }
+
+      .product button {
+        padding: 8px 12px;
+        background: #2196f3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .product button:hover {
+        background: #1976d2;
+      }
+
+      /* Giỏ hàng */
+      .cart {
+        width: 30%;
+        background: white;
+        margin-left: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .cart h2 {
+        text-align: center;
+      }
+
+      .cart ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .cart li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+
+      .total {
+        font-weight: bold;
+        text-align: right;
+        margin-top: 10px;
+        color: #e53935;
+      }
+    </style>
+  </head>
+  <body>
+    <header>🛍️ SHOP QUẦN ÁO ONLINE</header>
+
+    <div class="container">
+      <!-- SẢN PHẨM -->
+      <div class="products">
+        <div class="product">
+          <img src="" D:/tải xuống (2).jpg >
+          <h3>Áo thun nam</h3>
+          <p>150.000 đ</p>
+          <button onclick="addToCart('Áo thun nam', 150000)">
+            Thêm vào giỏ
+          </button>
+        </div>
+
+        <div class="product">
+          <img src="https://i.imgur.com/8zZ7ZzJ.jpg" />
+          <h3>Áo sơ mi</h3>
+          <p>250.000 đ</p>
+          <button onclick="addToCart('Áo sơ mi', 250000)">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product">
+          <img src="https://i.imgur.com/7vHnQ6x.jpg" />
+          <h3>Quần jean</h3>
+          <p>350.000 đ</p>
+          <button onclick="addToCart('Quần jean', 350000)">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product">
+          <img src="https://i.imgur.com/MnZQ9qY.jpg" />
+          <h3>Váy nữ</h3>
+          <p>400.000 đ</p>
+          <button onclick="addToCart('Váy nữ', 400000)">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product">
+          <img src="https://i.imgur.com/0Z8FJkC.jpg" />
+          <h3>Áo khoác</h3>
+          <p>500.000 đ</p>
+          <button onclick="addToCart('Áo khoác', 500000)">Thêm vào giỏ</button>
+        </div>
+      </div>
+
+      <!-- GIỎ HÀNG -->
+      <div class="cart">
+        <h2>🛒 Giỏ hàng</h2>
+        <ul id="cartItems"></ul>
+        <div class="total" id="totalPrice">Tổng: 0 đ</div>
+      </div>
+    </div>
+
+    <script>
+      let total = 0;
+
+      function addToCart(name, price) {
+        const cart = document.getElementById("cartItems");
+
+        const li = document.createElement("li");
+        li.innerHTML = `<span>${name}</span><span>${price.toLocaleString()} đ</span>`;
+
+        cart.appendChild(li);
+
+        total += price;
+        document.getElementById("totalPrice").innerText =
+          "Tổng: " + total.toLocaleString() + " đ";
+      }
+    </script>
+  </body>
+</html>
